@@ -1,3 +1,5 @@
+.libPaths( c('.Rpackages',.libPaths() ) )
+
 #' `minfi` is one of the most commonly used R packages for working with Infinium
 #' Methylation BeadChips. In the following we import and preprocess the same dataset
 #' as in the first script but using `minfi`, and point out some differences to

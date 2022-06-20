@@ -25,7 +25,7 @@ if(length(toinstallCRAN >= 1)) {
 
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
-BiocManager::install(version = "3.14")
+BiocManager::install(version = "3.15")  # use 3.14 with older versions of R
 
 #' install these from BioConductor:
 toinstallBioC <- setdiff(fromBioC, installed.packages()[,1])
@@ -34,7 +34,7 @@ if(length(toinstallBioC >= 1)) {
   cat("finished installing new packages from BioConductor\n")
 } else cat("packages we need from BioConductor are already installed\n")
 
-devtools::install_github("hhhh5/ewastools@ebc2021")
+devtools::install_github("hhhh5/ewastools")
 devtools::install_github("sailalithabollepalli/EpiSmokEr",type = "source") # not on CRAN
 devtools::install_github("annebozack/EWASplot")
 

@@ -1,3 +1,5 @@
+.libPaths( c('.Rpackages',.libPaths() ) )
+
 #'# Regional DNA methylation analysis using DMRcate
 #' Using data preprocessed in our script:  
 #' meth01_process_data.R
@@ -21,7 +23,15 @@ betas.clean <- beta[manifest[manifest$probe_type=="cg" & !chr %in% c("X","Y")]$i
 #' see [Phipson and Oshlack. Genome Biol 2014](https://pubmed.ncbi.nlm.nih.gov/25245051/). 
 #' Impute missing Beta-values (varFit will produce an error with missingness)
 sum(is.na(betas.clean))
-betas.impute <- champ.impute(beta=betas.clean, pd=pheno, k=5, ProbeCutoff=0.2, SampleCutoff=0.1)
+
+# the champ.impute function prints a lot of information when running, so we'll use this function to supress the progress messages
+hush=function(code){
+  sink("NUL") # use /dev/null in UNIX
+  tmp = code
+  sink()
+  return(tmp)
+}
+betas.impute <- hush(champ.impute(beta=betas.clean, pd=pheno, k=5, ProbeCutoff=0.2, SampleCutoff=0.1))
 betas.impute <- betas.impute$beta
 
 #' coef parameter in varFit states which columns of design matrix correspond to the intercept and variable of interest
@@ -131,6 +141,12 @@ suppressMessages(library(ggplot2))
 suppressMessages(library(EWASplot))
 manhattan_plot(probe = EWAS.limma, region = combp.result)
 
+
+#'# Introduction to pathway analysis with gometh
+#' see [Geeleher et al. Bioinformatics 2013](https://academic.oup.com/bioinformatics/article/29/15/1851/265573?login=false).
+keggResult = gometh(sig.cpg = rownames(EWAS.limma)[EWAS.limma$adj.P.Val < 0.05], all.cpg = rownames(EWAS.limma), collection = 'KEGG')
+keggResult = keggResult[order(keggResult$P.DE),]
+head(keggResult)
 
 #'Clean data
 rm(combp.result, EWAS.limma, EWAS.combp, combp.result);gc()

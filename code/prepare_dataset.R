@@ -1,3 +1,5 @@
+.libPaths( c('.Rpackages',.libPaths() ) )
+
 library(ewastools)
 library(stringi)
 library(data.table)

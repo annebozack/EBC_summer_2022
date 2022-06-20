@@ -1,3 +1,5 @@
+.libPaths( c('.Rpackages',.libPaths() ) )
+
 #'# Analyze methylation data  
 #' Using data preprocessed in our script:  
 #'  meth01_process_data.R  

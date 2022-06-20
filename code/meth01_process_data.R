@@ -1,3 +1,5 @@
+.libPaths( c('.Rpackages',.libPaths() ) )
+
 #' Load required libraries (ignore warning messages)
 library(stringi)
 library(magrittr)
@@ -80,11 +82,6 @@ meth$N[201:203,1:3]
 #' for control probes. The control probes don't target CpG sites, but are used to
 #' monitor the various experimental steps or for preprocessing. We will make use
 #' of them below for quality control.
-
-
-
-
-
 
 
 

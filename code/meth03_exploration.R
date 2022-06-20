@@ -1,3 +1,5 @@
+.libPaths( c('.Rpackages',.libPaths() ) )
+
 options(warn=-1)
 library(data.table)
 suppressMessages(library(limma))
@@ -8,7 +10,7 @@ options(warn=0)
 
 
 #+ setdir01, echo = F
-knitr::opts_knit$set(root.dir = "../")
+# knitr::opts_knit$set(root.dir = "../")
 load("data/processed.rda")
 
 #'# Exploring global DNA Methylation variability via PCs
