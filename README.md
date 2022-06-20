@@ -4,7 +4,7 @@ This repository contains R scripts for the <a href="https://www.publichealth.col
 
 ## Data lab output
 
-<a href="https://annebozack.github.io/EBC_summer_2022/output_html/meth01_process_data.html">Lab 1: Importing data and data processing</a> 
+<a href="https://annebozack.github.io/EBC_summer_2022/meth01_process_data.html">Lab 1: Importing data and data processing</a> 
 
 <a href="https://annebozack.github.io/EBC_summer_2022/output_html/meth02_minfi_pipeline.html">Lab 2: Minfi pipeline</a> 
 
