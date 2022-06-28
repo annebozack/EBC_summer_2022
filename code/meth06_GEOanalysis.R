@@ -1,3 +1,5 @@
+.libPaths( c('.Rpackages',.libPaths() ) )
+
 # Example of using a GEO dataset (450k)
 
 options(warn=-1)

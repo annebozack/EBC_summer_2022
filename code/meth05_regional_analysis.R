@@ -101,7 +101,7 @@ names(cols) = levels(pheno$smoker)[pheno$smoker]
 
 #'Draw the plot a DMR\
 #+ fig.width=8, fig.height=6, dpi=300
-DMR.plot(ranges=results.ranges, dmr=1, CpGs=betas.clean, phen.col=cols, what = "Beta",
+DMR.plot(ranges=results.ranges, dmr=2, CpGs=betas.clean, phen.col=cols, what = "Beta",
          arraytype = "450K", pch=16, toscale=TRUE, plotmedians=TRUE, 
          genome="hg19", samps=1:nrow(pheno))
 
@@ -149,7 +149,7 @@ keggResult = keggResult[order(keggResult$P.DE),]
 head(keggResult)
 
 #'Clean data
-rm(combp.result, EWAS.limma, EWAS.combp, combp.result);gc()
+rm(combp.result, EWAS.limma, EWAS.combp);gc()
 
 
 #'# Predicting smoking with EpiSmokEr
