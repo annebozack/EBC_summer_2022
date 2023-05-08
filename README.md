@@ -1,4 +1,4 @@
-# EBC_Spring_2022
+# EBC_Summer_2022
 
 This repository contains R scripts for the <a href="https://www.publichealth.columbia.edu/research/precision-prevention/epigenetics-boot-camp-planning-and-analyzing-dna-methylation-studies">Summer 2022 Columbia University SHARP Training Program Epigenetics Bootcamp</a>.
 
